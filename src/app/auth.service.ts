@@ -13,7 +13,8 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   loadPatients() {
-    this.http.get<{ patients: Patient[] }>('/assets/patients_data.json').subscribe({
+    const baseUrl = window.location.hostname.includes('github.io') ? '/project-fhir-spa-1-2/' : '/';
+    this.http.get<{ patients: Patient[] }>(baseUrl + 'assets/patients_data.json').subscribe({
       next: (data) => this.patients = data.patients,
       error: (err) => console.error('Failed to load patient data:', err)
     });

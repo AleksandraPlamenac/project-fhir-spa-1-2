@@ -22,7 +22,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1.	ng add angular-cli-ghpages
+
+2.	Select ghpages and root
+
+3.  ng deploy --base-href https://AleksandraPlamenac.github.io/project-fhir-spa-1-2/
 
 ## Running unit tests
 
