@@ -32,6 +32,10 @@
     border-bottom: 1px solid #eee;
 }
 
+.alert {
+    color: red;
+}
+
 .section:last-child {
     border-bottom: none;
 }

@@ -29,7 +29,7 @@
 
         <div class="section lab-interpretation">
             <h3>Lab Interpretation</h3>
-            <p>{{ currentPatient.labInterpretation }}</p>
+            <p class="alert">{{ currentPatient.labInterpretation }}</p>
         </div>
 
         <div class="section advise">
@@ -42,4 +42,16 @@
             <p>Please log in to see patient information.</p>
         </div>
     </ng-template>
+
+    <div>
+        <h2>Appointments</h2>
+        <ul>
+          <li *ngFor="let appointment of appointments">
+            {{ appointment.title }} - {{ appointment.start | date: 'fullDate' }}
+          </li>
+        </ul>
+        <app-schedule-appointment></app-schedule-appointment>
+      </div>
 </div>
+
+
