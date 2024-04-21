@@ -44,13 +44,21 @@ export class ScheduleAppointmentComponent {
   
 
   saveEvents(): void {
-    localStorage.setItem('appointments', JSON.stringify(this.events));
-    console.log('Saved events:', this.events);
+    try {
+      localStorage.setItem('appointments', JSON.stringify(this.events));
+      console.log('Saved events:', this.events);
+    } catch (error) {
+      console.error('Failed to save events to local storage:', error);
+    }
   }
   
   fetchEvents(): void {
-    this.events = JSON.parse(localStorage.getItem('appointments') || '[]');
-    console.log('Fetched events:', this.events);
+    try {
+      this.events = JSON.parse(localStorage.getItem('appointments') || '[]');
+      console.log('Fetched events:', this.events);
+    } catch (error) {
+      console.error('Failed to fetch events from local storage:', error);
+    }
   }
 
   addEvent(title: string, date: Date): void {
