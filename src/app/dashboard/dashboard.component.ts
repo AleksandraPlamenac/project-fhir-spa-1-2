@@ -1,9 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Patient } from '../models/patient.model';
 import { CommonModule, NgFor } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,20 +13,10 @@ import { AppointmentService } from '../appointment.service';
 })
 export class DashboardComponent implements OnInit {
   currentPatient: Patient | null = null;
-  events: any[] = [];
-  appointments: any[] = [];  // Declare the 'appointments' array
 
-  constructor(private authService: AuthService, private appointmentService: AppointmentService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.currentPatient = this.authService.getCurrentPatient();
-    this.appointmentService.events.subscribe(events => {
-      this.events = events;
-      this.appointments = events; // Optionally synchronize 'appointments' with 'events'
-    });
-  }
-
-  createAppointment(title: string, date: Date): void {
-    this.appointmentService.addEvent(title, date);
   }
 }
