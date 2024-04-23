@@ -3,14 +3,12 @@ import { AuthService } from '../auth.service';
 import { Patient } from '../models/patient.model';
 import { CommonModule, NgFor } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ScheduleAppointmentComponent } from '../schedule-appointment/schedule-appointment.component';
-import { CalendarModule, CalendarUtils } from 'angular-calendar';
 import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, NgFor, HttpClientModule, ScheduleAppointmentComponent, CalendarModule],
+  imports: [CommonModule, NgFor, HttpClientModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
